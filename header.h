@@ -32,7 +32,10 @@ public:
 	void BuscarElemento(object x);
 	void DeletarLista();
 	void ImprimirLista();
+	int Indice(object h);
+	void DeletarCombo();
 };
+
 
 #include "class.inl"
 

@@ -21,5 +21,6 @@ void Map::Combo(){
 		auxBefore = auxBefore->back;
 	}
 	menosPosition = game.Indice(auxBefore->next);
+	game.DeletarCombo();
 
 }
