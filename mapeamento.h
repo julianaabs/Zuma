@@ -16,6 +16,9 @@ public:
 	Node<object> *auxAfter;
 	Map Map(Node<object> *auxInserido, Lista<object> *auxGame);
 	void RemoveSeq();
+	bool VerifySeq();
+	void Pontos();
+	void Combo();
 
 }
 

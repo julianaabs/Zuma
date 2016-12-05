@@ -20,20 +20,14 @@ void Lista<object>::DeletarSeq(){
 		cont = tmp->next;
 		delete tmp;
 	}
+
 	fsize-=numberOfBalls;
 }
 
 void Map::RemoveSeq(){
-	auxAfter = inserido;
-	while(auxAfter->data == inserido->data && auxAfter->next != NULL){
-		auxAfter = auxAfter->next;
+	if(VerifySeq(inserido)==true){
+			game.DeletarSeq();
 	}
-	maisPosition = game.Indice(auxAfter->back);
-	while(auxBefore->data == inserido->data && auxBefore->back != NULL){
-		auxBefore = auxBefore->back;
-	}
-	menosPosition = game.Indice(auxBefore->next);
-	game.DeletarSeq();
 	numberOfBalls = maisPosition - menosPosition;
 	auxBefore->next = auxAfter;
 
@@ -51,21 +45,30 @@ void Map::Pontos(){
 
 bool Map::VerifySeq(Node<object> *inserido){
 	auxAfter = inserido;
+	bool before, after;
 	while(auxAfter->data == inserido->data && auxAfter->next != NULL){
 		auxAfter = auxAfter->next;
-		return true;
+		after = true;
 	}
 	maisPosition = game.Indice(auxAfter->back);
+	auxBefore = inserido;
 	while(auxBefore->data == inserido->data && auxBefore->back != NULL){
 		auxBefore = auxBefore->back;
-		return true;
+		before = true;
 	}
 	menosPosition = game.Indice(auxBefore->next);
+	numberOfBalls = maisPosition - menosPosition;
+	if(before || after){
+		return true;
+	}
+	else{
+		return false;
+	}
 	return false;
 }
 
 void Map::Combo(){
-	while(VerifySeq()==true){
+	while(VerifySeq(auxBefore)==true){
 		player.points+=100;
 	}
 }
