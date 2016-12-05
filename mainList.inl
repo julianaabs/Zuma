@@ -151,7 +151,7 @@ void Lista<object>::NumeroElementos(){
 }
 
 template <class object>
-void Lista<object>::BuscarElemento(object x){
+void Lista<object>::BuscarElemento(object h){
 	Node<object> *cont;
 	int pos = 0;
 	for(cont = head; cont!=NULL; cont = cont->next) {
@@ -202,7 +202,7 @@ int Lista<object>::Indice(object h){
 
 //Função que deleta o combo de acordo com os índices dos nós
 template <class object>
-void Lista<object>::DeletarCombo(){
+void Lista<object>::DeletarSeq(){
 	Node<object> *cont = head; 
 	while(cont!=NULL){
 		Node<object> *tmp = cont;

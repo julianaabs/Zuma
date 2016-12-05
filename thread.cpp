@@ -13,13 +13,13 @@ void RunList(Lista<object>){
 		//stop thread
 	}
 }
-
 void Control(){
 
 }
 
 int main(){
 	std::thread queue (RunList);
+	
 	std::thread shot (Control);
 
     // Makes the main thread wait for the new thread to finish execution, therefore blocks its own execution

@@ -29,14 +29,14 @@ public:
 	void RemoverPosicao(int pos);
 	void RemoverFinal();
 	void NumeroElementos();
-	void BuscarElemento(object x);
+	void BuscarElemento(object h);
 	void DeletarLista();
 	void ImprimirLista();
 	int Indice(object h);
-	void DeletarCombo();
+	void DeletarSeq();
 };
 
 
-#include "class.inl"
+#include "mainList.inl"
 
 #endif
