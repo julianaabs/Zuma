@@ -2,7 +2,6 @@
 #define _HEADER_H_
 
 template <class object>
-
 class Node{
 
 public:
