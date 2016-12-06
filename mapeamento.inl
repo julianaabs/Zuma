@@ -25,12 +25,18 @@ void Lista<object>::DeletarSeq(){
 }
 
 void Map::RemoveSeq(){
+
 	if(VerifySeq(inserido)==true){
-			game.DeletarSeq();
+			Pontos();
+			DeletarSeq();
+			auxBefore->next = auxAfter;
+			while(VerifySeq(auxBefore)){
+				DeletarSeq();
+				auxBefore->next = auxAfter;
+				Combo();
+			}
 	}
 	numberOfBalls = maisPosition - menosPosition;
-	auxBefore->next = auxAfter;
-
 }
 
 void Map::Pontos(){
@@ -43,6 +49,11 @@ void Map::Pontos(){
 	}
 }
 
+/* Realiza a eliminação de sequências com qualquer número de bolinhas realizando um tipo de "mapeamento". O nó que está
+sendo inserido é passado como referência pois através dele será feito o mapeamento com os elementos da frente e os elementos
+de trás (utilizando os nós 'before' e 'after'). Após o mapeamento, os índices da primeira e da última bolinhas da sequência
+são guardados para poder eliminar aquela sequência e depois fazer o ligamento das duas cadeias restantes.
+*/
 bool Map::VerifySeq(Node<object> *inserido){
 	auxAfter = inserido;
 	bool before, after;
@@ -67,10 +78,12 @@ bool Map::VerifySeq(Node<object> *inserido){
 	return false;
 }
 
-void Map::Combo(){
+bool Map::Combo(){
 	while(VerifySeq(auxBefore)==true){
 		player.points+=100;
+		return true;
 	}
+	return false;
 }
 
 void Map::Tiro(Node<object> *auxInserido){
