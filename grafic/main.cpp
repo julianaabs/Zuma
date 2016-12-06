@@ -5,69 +5,40 @@
 //#include "SFML/Graphics/Sprite.hpp"
 
 int main(){
-    //shooter
     const float PI = 3.14159265;
 
 
 	sf::RenderWindow window(sf::VideoMode(640, 450), "Zuma");
-    	sf::Clock clock;
+    sf::Clock clock;
 
+
+    //definir objetos de texturas
 	sf::Texture interfaceText;
 	sf::Texture caminho1Text;
 	sf::Texture caminho2Text;
 	sf::Texture caminho3Text;
 	sf::Texture caminho4Text;
-	sf::Texture caminho5Text;	
+	sf::Texture caminho5Text;
 	sf::Texture Amarela;
-   	sf::Texture Verde;
-  	sf::Texture Azul;
-   	sf::Texture Vermelha;
-  	sf::Texture ShooterText;
+    sf::Texture Verde;
+    sf::Texture Azul;
+    sf::Texture Vermelha;
+    sf::Texture ShooterText;
 
-	if (!interfaceText.loadFromFile("interface.png"))
-	{
-		// handle error
-	}
-    if (!caminho1Text.loadFromFile("l1.png"))
-	{
-		// handle error
-	}
-	if (!caminho2Text.loadFromFile("l2.png"))
-	{
-		// handle error
-	}
-	if (!caminho3Text.loadFromFile("l3.png"))
-	{
-		// handle error
-	}
-	if (!caminho4Text.loadFromFile("l4.png"))
-	{
-		// handle error
-	}
-	if (!caminho5Text.loadFromFile("l5.png"))
-	{
-		// handle error
-	}
-    if (!Vermelha.loadFromFile("vermelha.png"))
-	{
-		// handle error
-	}
-    if (!Azul.loadFromFile("azul.png"))
-	{
-		// handle error
-	}
-    if (!Amarela.loadFromFile("amarela.png"))
-	{
-		// handle error
-	}
-    if (!Verde.loadFromFile("verde.png"))
-	{
-		// handle error
-	}
-	if (!ShooterText.loadFromFile("Shooter.png"))
-	{
-		// handle error
-	}
+    //carregar imagens nos objetos textura
+	interfaceText.loadFromFile("interface.png");
+    caminho1Text.loadFromFile("l1.png");
+    caminho2Text.loadFromFile("l2.png");
+	caminho3Text.loadFromFile("l3.png");
+	caminho4Text.loadFromFile("l4.png");
+	caminho5Text.loadFromFile("l5.png");
+    Vermelha.loadFromFile("vermelha.png");
+    Azul.loadFromFile("azul.png");
+    Amarela.loadFromFile("amarela.png");
+    Verde.loadFromFile("verde.png");
+	ShooterText.loadFromFile("Shooter.png");
+
+	//definição de objetos sprites ,setando suas texturas com objetos texturas definidos e mudar sua posição.
 	sf::Sprite interface;
 	interface.setTexture(interfaceText);
 
@@ -93,12 +64,7 @@ int main(){
 
     sf::Sprite Shooter;
     Shooter.setTexture(ShooterText);
-    //Shooter.setScale(0.5f,1.0f);
     Shooter.setPosition(sf::Vector2f(300, 240));
-    //Shooter.setRotation(60);
-
-
-
 
 	while (window.isOpen())
 	{
@@ -115,6 +81,8 @@ int main(){
 
 			}
 		}
+
+
         float MouseX = sf::Mouse::getPosition(window).x;
         float MouseY = sf::Mouse::getPosition(window).y;
         float a = 300 - MouseX;
@@ -147,7 +115,6 @@ int main(){
             }
 		}
 		window.clear();
-
 		window.draw(interface);
 		window.draw(l1);
 		window.draw(l2);
