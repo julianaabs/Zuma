@@ -199,17 +199,3 @@ int Lista<object>::Indice(object h){
 		pos++;
 	}
 }
-
-//Função que deleta o combo de acordo com os índices dos nós
-template <class object>
-void Lista<object>::DeletarSeq(){
-	Node<object> *cont = head; 
-	while(cont!=NULL){
-		Node<object> *tmp = cont;
-		cont = tmp->next;
-		delete tmp;
-	}
-	fsize=0;
-	head = NULL;
-	tail = NULL;
-}
