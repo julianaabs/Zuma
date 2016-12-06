@@ -1,23 +1,28 @@
 #include "SFML/Graphics.hpp"
 #include <iostream>
 #include "SFML/Window/Mouse.hpp"
+#include <math.h>
+//#include "SFML/Graphics/Sprite.hpp"
 
 int main(){
     //shooter
+    const float PI = 3.14159265;
+
 
 	sf::RenderWindow window(sf::VideoMode(640, 450), "Zuma");
-    sf::Clock clock;
+    	sf::Clock clock;
 
 	sf::Texture interfaceText;
 	sf::Texture caminho1Text;
 	sf::Texture caminho2Text;
 	sf::Texture caminho3Text;
 	sf::Texture caminho4Text;
-	sf::Texture caminho5Text;
+	sf::Texture caminho5Text;	
 	sf::Texture Amarela;
-    sf::Texture Verde;
-    sf::Texture Azul;
-    sf::Texture Vermelha;
+   	sf::Texture Verde;
+  	sf::Texture Azul;
+   	sf::Texture Vermelha;
+  	sf::Texture ShooterText;
 
 	if (!interfaceText.loadFromFile("interface.png"))
 	{
@@ -59,6 +64,10 @@ int main(){
 	{
 		// handle error
 	}
+	if (!ShooterText.loadFromFile("Shooter.png"))
+	{
+		// handle error
+	}
 	sf::Sprite interface;
 	interface.setTexture(interfaceText);
 
@@ -82,6 +91,13 @@ int main(){
 	bola.setTexture(Vermelha);
 	bola.setPosition(sf::Vector2f(30, 57));
 
+    sf::Sprite Shooter;
+    Shooter.setTexture(ShooterText);
+    //Shooter.setScale(0.5f,1.0f);
+    Shooter.setPosition(sf::Vector2f(300, 240));
+    //Shooter.setRotation(60);
+
+
 
 
 	while (window.isOpen())
@@ -99,6 +115,13 @@ int main(){
 
 			}
 		}
+        float MouseX = sf::Mouse::getPosition(window).x;
+        float MouseY = sf::Mouse::getPosition(window).y;
+        float a = 300 - MouseX;
+        float b = 220 - MouseY;
+        float mouseAngle = (atan2(b, a)) * 180 / PI;
+        Shooter.setRotation(mouseAngle +180);
+
 		sf::Time time = clock.getElapsedTime();
 
         if (bola.getGlobalBounds().intersects(l1.getGlobalBounds())){
@@ -123,8 +146,6 @@ int main(){
                 }
             }
 		}
-
-
 		window.clear();
 
 		window.draw(interface);
@@ -134,7 +155,7 @@ int main(){
 		window.draw(l4);
 		window.draw(l5);
 		window.draw(bola);
-
+        window.draw(Shooter);
 		window.display();
 	}
 }
