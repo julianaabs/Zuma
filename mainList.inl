@@ -1,5 +1,5 @@
 #include <iostream>
-#include "header.h"
+#include "mainList.h"
 
 template <class object>
 Lista<object>::Lista(){
@@ -155,7 +155,7 @@ void Lista<object>::BuscarElemento(object h){
 	Node<object> *cont;
 	int pos = 0;
 	for(cont = head; cont!=NULL; cont = cont->next) {
-		if(x==cont->data){
+		if(h==cont->data){
 			std::cout << "Elemento encontrado na posicao " << pos << std::endl;
 			return;
 		}
@@ -193,7 +193,7 @@ int Lista<object>::Indice(object h){
 	Node<object> *cont;
 	int pos = 0;
 	for(cont = head; cont!=NULL; cont = cont->next) {
-		if(x==cont->data){
+		if(h==cont->data){
 			return pos;
 		}
 		pos++;

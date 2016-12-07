@@ -1,32 +1,34 @@
 #include <iostream>
-//#include "mapeamento.h"
-#include <lista>
+#include "mapeamento.h"
+#include "mainList.h"
 
 template <class object>
-Map::Map(Node<object> *auxInserido, Lista<object> *auxGame){
+Map<object>::Map(Node<object> *auxInserido, Lista<object> *auxGame){
 	ThreeVerify = 0;
 	maisPosition = -1;
 	menosPosition = -1;
 	counterCombo = 0;
-	numberOfBalls;
+	numberOfBalls = 0;
 	game = auxGame;
+	player = new gamer();
 	auxAfter = NULL;
 	auxBefore = NULL;
 	inserido = auxInserido;
 }
 
 template <class object>
-void Map::DeletarSeq(){
+void Map<object>::DeletarSeq(){
 	Node<object> *cont = auxBefore->next; 
 	while(cont!=auxAfter){
 		Node<object> *tmp = cont;
 		cont = tmp->next;
 		delete tmp;
 	}
-	fsize-=numberOfBalls;
+	game->fsize-=numberOfBalls;
 }
 
- void Map::RemoveSeq(){
+template <class object>
+void Map<object>::RemoveSeq(){
  	if(VerifySeq(inserido)==true){
 		Pontos();
 		DeletarSeq();
@@ -43,16 +45,17 @@ void Map::DeletarSeq(){
 	}
 } 
 
-void Map::Pontos(){
+template <class object>
+void Map<object>::Pontos(){
 	if(numberOfBalls == 3){
-		player.points = 30;
+		player->points = 30;
 	}else if(numberOfBalls > 3){
 		for(int i=4; i<=numberOfBalls; i++){
-			player.points+=10;
+			player->points+=10;
 		}
 	}
 	if(counterCombo > 0){
-		player.points+=100;
+		player->points+=100;
 	}
 }
 
@@ -61,7 +64,8 @@ sendo inserido é passado como referência pois através dele será feito o mape
 de trás (utilizando os nós 'before' e 'after'). Após o mapeamento, os índices da primeira e da última bolinhas da sequência
 são guardados para poder eliminar aquela sequência e depois fazer o ligamento das duas cadeias restantes.
 */
-bool Map::VerifySeq(Node<object> *inserido){
+template <class object>
+bool Map<object>::VerifySeq(Node<object> *inserido){
 	auxAfter = inserido;
 	bool before, after;
 	while(auxAfter->data == inserido->data && auxAfter->next != NULL){
@@ -86,7 +90,7 @@ bool Map::VerifySeq(Node<object> *inserido){
 	return false;
 }
 
-bool Map::Combo(){
+/* bool Map::Combo(){
 	
 }
 

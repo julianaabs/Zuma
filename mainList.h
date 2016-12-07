@@ -18,10 +18,10 @@ class Lista{
 private:
 	Node<object> *head;
 	Node<object> *tail;
-	int fsize;
 public:
 	Lista(void);
 	//Lista(object);
+	int fsize;
 	void InserirInicio(object h);
 	void InserirPosicao(object h, int pos);
 	void InserirFinal(object h);

@@ -1,29 +1,31 @@
 #ifndef _MAPEAMENTO_H_
 #define _MAPEAMENTO_H_
+#include "mainList.h"
+#include "gamer.h"
+
 
 template <class object>
-
 class Map{
 public:
 	int ThreeVerify;
 	int maisPosition;
 	int menosPosition;
 	int position;
+	int numberOfBalls;
 	int counterCombo;
-	gamer player;
-	Lista<object> game;
+	gamer *player;
+	Lista<object> *game;
 	Node <object> *inserido;
 	Node<object> *auxBefore;
 	Node<object> *auxAfter;
-	Map Map(Node<object> *auxInserido, Lista<object> *auxGame);
-	//void RemoveSeq();
+	Map(Node<object> *auxInserido, Lista<object> *auxGame);
+	void RemoveSeq();
 	void DeletarSeq();
-	bool VerifySeq();
+	bool VerifySeq(Node<object> *inserido);
 	void Pontos();
 	//bool Combo();
 	//void Tiro();
-
-}
+};
 
 #include "mapeamento.inl"
 

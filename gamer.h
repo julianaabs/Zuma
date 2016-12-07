@@ -5,6 +5,7 @@ class gamer{
 public:
 	int points;
 	int life;
-}
+	gamer();
+};
 
-#endif;
+#endif
