@@ -9,17 +9,19 @@ public:
 	int maisPosition;
 	int menosPosition;
 	int position;
+	int counterCombo;
 	gamer player;
 	Lista<object> game;
 	Node <object> *inserido;
 	Node<object> *auxBefore;
 	Node<object> *auxAfter;
 	Map Map(Node<object> *auxInserido, Lista<object> *auxGame);
-	void RemoveSeq();
+	//void RemoveSeq();
+	void DeletarSeq();
 	bool VerifySeq();
 	void Pontos();
-	bool Combo();
-	void Tiro();
+	//bool Combo();
+	//void Tiro();
 
 }
 

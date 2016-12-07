@@ -1,10 +1,13 @@
 #include <iostream>
-#include "mapeamento.h"
+//#include "mapeamento.h"
+#include <lista>
 
+template <class object>
 Map::Map(Node<object> *auxInserido, Lista<object> *auxGame){
 	ThreeVerify = 0;
 	maisPosition = -1;
 	menosPosition = -1;
+	counterCombo = 0;
 	numberOfBalls;
 	game = auxGame;
 	auxAfter = NULL;
@@ -13,31 +16,32 @@ Map::Map(Node<object> *auxInserido, Lista<object> *auxGame){
 }
 
 template <class object>
-void Lista<object>::DeletarSeq(){
+void Map::DeletarSeq(){
 	Node<object> *cont = auxBefore->next; 
 	while(cont!=auxAfter){
 		Node<object> *tmp = cont;
 		cont = tmp->next;
 		delete tmp;
 	}
-
 	fsize-=numberOfBalls;
 }
 
-void Map::RemoveSeq(){
-
-	if(VerifySeq(inserido)==true){
+ void Map::RemoveSeq(){
+ 	if(VerifySeq(inserido)==true){
+		Pontos();
+		DeletarSeq();
+		auxBefore->next = auxAfter;
+		auxAfter->back = auxBefore;
+		inserido = auxBefore;
+		while(VerifySeq(auxBefore)){
+			counterCombo++;
 			Pontos();
 			DeletarSeq();
 			auxBefore->next = auxAfter;
-			while(VerifySeq(auxBefore)){
-				DeletarSeq();
-				auxBefore->next = auxAfter;
-				Combo();
-			}
+			auxAfter->back = auxBefore;
+		}
 	}
-	numberOfBalls = maisPosition - menosPosition;
-}
+} 
 
 void Map::Pontos(){
 	if(numberOfBalls == 3){
@@ -46,6 +50,9 @@ void Map::Pontos(){
 		for(int i=4; i<=numberOfBalls; i++){
 			player.points+=10;
 		}
+	}
+	if(counterCombo > 0){
+		player.points+=100;
 	}
 }
 
@@ -75,17 +82,14 @@ bool Map::VerifySeq(Node<object> *inserido){
 	else{
 		return false;
 	}
+	numberOfBalls = maisPosition - menosPosition;
 	return false;
 }
 
 bool Map::Combo(){
-	while(VerifySeq(auxBefore)==true){
-		player.points+=100;
-		return true;
-	}
-	return false;
-}
-
-void Map::Tiro(Node<object> *auxInserido){
 	
 }
+
+/* void Map::Tiro(Node<object> *auxInserido){
+	
+} */
