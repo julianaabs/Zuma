@@ -18,7 +18,8 @@ public:
 	void RemoveSeq();
 	bool VerifySeq();
 	void Pontos();
-	void Combo();
+	bool Combo();
+	void Tiro();
 
 }
 

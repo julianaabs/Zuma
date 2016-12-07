@@ -1,6 +1,8 @@
 #include <iostream>
 #include <chrono>
 #include <thread>
+#include <stdlib.h>
+#include <time.h>
 
 void RunList(Lista<object>){
 	Lista<int> l; //tipo bola
@@ -9,8 +11,8 @@ void RunList(Lista<object>){
 	while(){
 		l.InserirFinal(); //random
 		std::this_thread::sleep_for(std::chrono::miliseconds(2000));
-	}if(bolinhas<10){
-		//stop thread
+	}if(numberofBalls<10){
+		std::this_thread::sleep_for(std::chrono::miliseconds(2000));
 	}
 }
 void Control(){

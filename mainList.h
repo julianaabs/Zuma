@@ -2,6 +2,7 @@
 #define _HEADER_H_
 
 template <class object>
+
 class Node{
 
 public:
@@ -32,7 +33,6 @@ public:
 	void DeletarLista();
 	void ImprimirLista();
 	int Indice(object h);
-	void DeletarSeq();
 };
 
 
