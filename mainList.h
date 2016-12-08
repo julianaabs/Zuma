@@ -6,7 +6,7 @@ template <class object>
 class Node{
 
 public:
-	object data;
+	object bola;
 	Node *next;
 	Node *back;
 	Node(void){}
