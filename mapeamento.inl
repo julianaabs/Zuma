@@ -10,7 +10,7 @@ Map<object>::Map(Node<object> *auxInserido, Lista<object> *auxGame){
 	counterCombo = 0;
 	numberOfBalls = 0;
 	game = auxGame;
-	player = new gamer();
+	points = 0;
 	auxAfter = NULL;
 	auxBefore = NULL;
 	inserido = auxInserido;
@@ -48,14 +48,14 @@ void Map<object>::RemoveSeq(){
 template <class object>
 void Map<object>::Pontos(){
 	if(numberOfBalls == 3){
-		player->points = 30;
+		points = 30;
 	}else if(numberOfBalls > 3){
 		for(int i=4; i<=numberOfBalls; i++){
-			player->points+=10;
+			points+=10;
 		}
 	}
 	if(counterCombo > 0){
-		player->points+=100;
+		points+=100;
 	}
 }
 

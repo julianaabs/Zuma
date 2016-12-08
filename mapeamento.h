@@ -1,7 +1,6 @@
 #ifndef _MAPEAMENTO_H_
 #define _MAPEAMENTO_H_
 #include "mainList.h"
-#include "gamer.h"
 
 
 template <class object>
@@ -13,7 +12,7 @@ public:
 	int position;
 	int numberOfBalls;
 	int counterCombo;
-	gamer *player;
+	int points;
 	Lista<object> *game;
 	Node <object> *inserido;
 	Node<object> *auxBefore;
