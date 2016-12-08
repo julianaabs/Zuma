@@ -9,7 +9,8 @@ void RunList(Lista<object>){
 	/* Aqui precisará rodar um loop pra inserir um elemento na fila a cada x segundos
 	utilizar função sleep da thread */
 	while(){
-		l.InserirFinal(); //random
+		Bola bola = new Bola(posicaoinicialX,posicaoinicialY);
+		l.InserirFinal(bola); //random
 		std::this_thread::sleep_for(std::chrono::miliseconds(2000));
 	}if(numberofBalls<10){
 		std::this_thread::sleep_for(std::chrono::miliseconds(2000));
