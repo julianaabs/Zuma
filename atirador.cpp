@@ -1,7 +1,10 @@
 #include <iostream>
 
-Atirador::Atirador();
-	
+/* 
+   Função que cria um objeto Bola, após isso, verifica se a Bola criada tem a cor existente na lista de bolas,
+   no caso, é analizada a primeira bola da lista comparada com o objeto criado, enquanto a Bola for diferente 
+   do primeiro elemento bola da lista, vai ser instanciado um novo elemento Bola que será analizado novamente.
+*/   
 Bola Atirador::gerarBola(Lista<Bola> lista, Ponto origem)
 {
 	Bola bola = new Bola(origem.getX(), origem.getY());
@@ -18,11 +21,21 @@ Bola Atirador::gerarBola(Lista<Bola> lista, Ponto origem)
 	return bola;
 }
 
+/*
+	Função retorna a coordenada Y da equação da reta, 
+*/
 int Atirador::gerarY(int coeficiente, int x, int x1, y1)
 {
 	return coeficiente * (x - x1) + y1;
 }
 
+/*
+   Com um evento do sfml, é possivel verificar se um objeto colidiu com algum outro elemento, sabendo disso
+   o front-end dessa colisão, cria um objeto Ponto com as coordenadas da colisão e chama a função colisao.
+   Na função colisao, e feita uma verificação de todos os objetos da lista de bolas. Pegamos as coordenadas 
+   dos objetos bola e verificamos se o ponto que colidiu está no raio do objeto, se o ponto estiver no raio 
+   da bola, esta será retornada, para fazer a verificação de combo.
+*/
 Bola Atirador::colisao(Ponto colisao, Lista<Bola> lista)
 {
 	Nodo aux = lista->head;
@@ -43,7 +56,9 @@ Bola Atirador::colisao(Ponto colisao, Lista<Bola> lista)
 	}
 	
 }
-
+/*
+   A função atirar faz com que ao objeto Bola do atirador(Bola origem) movasse de acordo com a posição do mouse(Bola alvo).
+*/
 void Atirador::atirar(&Bola origem, &Bola alvo)
 {
 		
