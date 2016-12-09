@@ -11,6 +11,19 @@ Matrícula: 20150104456
 Nome: MATEUS DE MEDEIROS CORDEIRO 
 Matrícula: 20150104714
 
+Compilação:
+
+A compilação está sendo feita pelo arquivo makefile na pasta grafic para linux, temos 
+que colocar o PATH do biblioteca do sfml no makefile.
+
+Execução:
+
+A execução só está exibindo a pagina inicial com uma bola e o atirador.
+
+Para executar, abra o terminal do linux, entre na pasta do projeto Zuma/grafic, e digite o seguinte comando:
+
+>> ./zuma
+
 Problemas do projeto:
 
   O maior problema enfrentado no projeto foi finalizar a sua produção unindo o back-end ao front-end, logo, não é possível
