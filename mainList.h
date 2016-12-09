@@ -15,10 +15,9 @@ public:
 template <class object>
 class Lista{
 
-private:
+public:
 	Node<object> *head;
 	Node<object> *tail;
-public:
 	Lista(void);
 	//Lista(object);
 	int fsize;
