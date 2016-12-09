@@ -7,9 +7,6 @@
 class Atirador
 {
 public:
-
-	Atirador();
-	
 	Bola gerarBola(Lista<Bola> lista);
 
 	int gerarY(int coeficiente, int x, int x1, y1);
