@@ -4,6 +4,10 @@
 #include "mainList.h"
 #include "bola.h"
 
+/*
+   A classe atirador gera as bolas, atira e verifica a colisão, depois 
+   retorna a informação, que será tratada nas outras classes.
+*/
 class Atirador
 {
 public:
